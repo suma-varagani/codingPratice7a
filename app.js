@@ -123,9 +123,8 @@ app.get("/matches/:matchId/players", async (request, response) => {
   const { matchId } = request.params;
   const API6thQuery = `
     SELECT *
-    FROM player_details LEFT JOIN player_match_score
-     ON player_details.player_id=player_match_score.player_id
-     WHERE player_match_score.match_id=${matchId};`;
+    FROM  player_match_score  NATURAL JOIN  player_details
+    WHERE match_id=${matchId};`;
   const Array = await db.all(API6thQuery);
   console.log(Array);
   response.send(Array.map((eachone) => convertDbResponseToObject(eachone)));

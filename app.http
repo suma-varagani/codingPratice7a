@@ -17,3 +17,6 @@ GET http://localhost:3700/matches/18/
  
 #####
 GET  http://localhost:3700/matches/10/players
+
+######
+GET http://localhost:3700/players/1/playerScores
